@@ -32,3 +32,14 @@ function CreateNewPost($userId, $content) {
   // $response = $PDO->query("INSERT INTO post (user_id, content) VALUES ($userId[0], '$content')");
   // $response->execute();
 }
+
+function SearchInPosts($filter) {
+  global $PDO;
+  $response = $PDO->query(
+    "SELECT post.*, user.nickname "
+    . "FROM post LEFT JOIN user on (post.user_id = user.id) "
+    . "WHERE content like '%$filter%' "
+    . "ORDER BY post.created_at DESC"
+  );
+  return $response->fetchAll();
+}
