@@ -25,3 +25,10 @@ function GetAllPostsFromUserId($userId)
   $response = $PDO->query("SELECT * FROM post WHERE user_id = $userId ORDER BY created_at DESC");
   return $response->fetchAll();
 }
+
+function CreateNewPost($userId, $content) {
+  global $PDO;
+  $PDO->query("INSERT INTO post (user_id, content) VALUES ($userId[0], '$content')");
+  // $response = $PDO->query("INSERT INTO post (user_id, content) VALUES ($userId[0], '$content')");
+  // $response->execute();
+}
