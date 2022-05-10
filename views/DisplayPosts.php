@@ -18,7 +18,7 @@
 
 <body>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="?">
+    <a class="navbar-brand" href="/">
       <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Tiny Social Network
     </a>
@@ -38,16 +38,16 @@
       if (isset($_SESSION['userId'])) {
     ?>
         <li class="nav-item">
-          <a class="nav-link" href="?action=logout" role="button">Logout</a>
+          <a class="nav-link" href="logout" role="button">Logout</a>
         </li>
     <?php
       } else {
     ?>
         <li class="nav-item">
-          <a class="nav-link" href="?action=login" role="button">Login</a>
+          <a class="nav-link" href="login" role="button">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?action=register" role="button">Sign Up</a>
+          <a class="nav-link" href="register" role="button">Sign Up</a>
         </li>
     <?php
       }

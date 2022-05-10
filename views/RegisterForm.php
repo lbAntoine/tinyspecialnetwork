@@ -18,7 +18,7 @@
 
 <body>
   <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="?">
+    <a class="navbar-brand" href="/">
       <img src="img/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Tiny Social Network
     </a>
@@ -44,7 +44,7 @@
     </div>
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <form class="form-signin" method="POST" action="?action=register">
+        <form class="form-signin" method="POST" action="register">
           <h2 class="form-signin-heading">Registration</h2>
           <?php
           if (isset($errorMsg)) {

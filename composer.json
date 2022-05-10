@@ -1,0 +1,15 @@
+{
+    "name": "antoine/socialnetwork",
+    "autoload": {
+        "psr-4": {
+            "Antoine\\Socialnetwork\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Antoine Le Bras",
+            "email": "alebras@expert-net.fr"
+        }
+    ],
+    "require": {}
+}

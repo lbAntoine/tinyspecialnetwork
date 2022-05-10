@@ -1,6 +1,6 @@
 <?php
 
-$action = $_GET["action"] ?? "display";
+$action = substr(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), 1);
 
 switch ($action) {
 
@@ -12,7 +12,7 @@ switch ($action) {
     if (isset($_SESSION['userId'])) {
       unset($_SESSION['userId']);
     }
-    header('Location: ?action=display');
+    header('Location: display');
     break;
 
   case 'login':
@@ -21,7 +21,7 @@ switch ($action) {
       $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
       if ($userId > 0) {
         $_SESSION['userId'] = $userId;
-        header('Location: ?action=display');
+        header('Location: display');
       } else {
         $errorMsg = "Wrong login and/or password.";
         include "../views/LoginForm.php";
@@ -36,14 +36,14 @@ switch ($action) {
     if (isset($_SESSION['userId']) && isset($_POST['msg'])) {
       CreateNewPost($_SESSION['userId'], $_POST['msg']);
     }
-    header('Location: ?action=display');
+    header('Location: display');
     break;
 
   case 'newComment':
     // code...
     break;
 
-  case 'display':
+  case '/':
   default:
     include "../models/PostManager.php";
     $posts = GetAllPosts();
